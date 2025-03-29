@@ -3,49 +3,110 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start; /* ขยับภาพขึ้น */
+  align-items: flex-start;
   gap: 2rem;
   padding: 2rem 1rem;
 }
 
 .hero-text {
-  max-width: 600px; /* บีบความกว้างให้อ่านง่าย */
+  max-width: 600px;
   font-family: 'Share Tech Mono', monospace;
   color: #eee;
   font-size: 1.05rem;
   line-height: 1.8;
-  border-left: 2px solid #00ffff33; /* เส้นนำสายตา */
-  padding-left: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
 }
 
-.hero-text h1 {
-  font-size: 2rem;
-  color: #00ffff;
+/* เส้นข้างซ้ายแบบมี animation */
+.hero-text::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #00ffff, transparent);
+  animation: scroll-border 2s linear infinite;
+}
+
+@keyframes scroll-border {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100%;
+  }
+}
+
+/* Heading Terminal-style */
+.terminal-line {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  display: inline-block;
+  color: transparent;
+  background: linear-gradient(90deg, #39ff14, #00ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  position: relative;
 }
 
-.hero-text h1 .highlight {
-  color: #39ff14;
+/* Cursor กระพริบ */
+.terminal-line::after {
+  content: '|';
+  margin-left: 6px;
+  color: #00ffff;
+  animation: blink 1s step-start infinite;
 }
 
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ข้อความทั่วไป */
 .hero-text p {
   margin-bottom: 1.5rem;
   white-space: pre-line;
   line-height: 1.8;
+  color: #eee;
+  text-shadow: 0 0 4px #00ffff22;
 }
 
-.hero-text .terminal-line {
-  font-family: 'Share Tech Mono', monospace;
+/* Highlight สีพิเศษ */
+.highlight-pink {
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+.highlight-cyan {
   color: #00ffff;
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
+  font-weight: bold;
 }
 
+.highlight-green {
+  color: #39ff14;
+  font-weight: bold;
+}
+
+.highlight-orange {
+  color: #ffae00;
+  font-weight: bold;
+}
+
+/* รูปภาพ */
 .hero-img img {
   max-width: 260px;
   border-radius: 50%;
   box-shadow: 0 0 20px #00ffff88;
-  margin-top: 1rem;
+  transition: 0.3s ease;
+}
+
+.hero-img img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 24px #00ffffaa;
 }
 
 /* ปุ่ม CTA */
@@ -62,17 +123,30 @@
   text-decoration: none;
   display: inline-block;
   margin-top: 2rem;
+  animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 12px #00ffff, 0 0 24px #00ffff66;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffff, 0 0 36px #00ffffaa;
+  }
+  100% {
+    box-shadow: 0 0 12px #00ffff, 0 0 24px #00ffff66;
+  }
 }
 
 .btn-glow:hover {
   background: #0ff;
-  box-shadow: 0 0 24px #00ffff, 0 0 48px #00ffffaa;
   transform: scale(1.05);
 }
 
-/* Footer ปรับลมหายใจ UX */
+/* Footer breathing space */
 footer {
   margin-top: 4rem;
+  font-family: 'Share Tech Mono', monospace;
 }
 
 /* Responsive */
@@ -83,8 +157,11 @@ footer {
     text-align: center;
   }
 
+  .hero-text::before {
+    display: none;
+  }
+
   .hero-text {
-    border-left: none;
     padding-left: 0;
     font-size: 1rem;
   }

@@ -1,0 +1,98 @@
+/* cv.css - Styles for CV Page */
+
+.cv-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.cv-left {
+  flex: 1 1 250px;
+  max-width: 300px;
+  text-align: center;
+}
+
+.cv-left img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #00ffff88;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.cv-left h2 {
+  margin: 0;
+  color: #00ffff;
+}
+
+.position {
+  color: #39ff14;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+}
+
+.contact-info a {
+  color: #00ffff;
+  text-decoration: none;
+}
+
+.cv-right {
+  flex: 2 1 600px;
+}
+
+.cv-right h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffff;
+}
+
+.cv-section {
+  margin-bottom: 2rem;
+  border-left: 3px solid #00ffff;
+  padding-left: 1rem;
+}
+
+.cv-section h2 {
+  color: #ff00ff;
+  margin-bottom: 0.5rem;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+}
+
+.skills-list li {
+  background-color: #121212;
+  padding: 0.5rem;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 0 10px #00ffff22;
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .cv-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cv-right {
+    width: 100%;
+  }
+
+  .cv-left {
+    max-width: none;
+  }
+}

@@ -1,0 +1,89 @@
+/* พื้นหลังหลัก */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ffcc;
+  }
+  
+  /* กล่องกลาง */
+  .game-container {
+    text-align: center;
+    padding: 40px 20px;
+  }
+  
+  /* หัวข้อเกม */
+  .game-title {
+    color: #00ffcc;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Canvas เกม */
+  canvas {
+    background-color: #111;
+    border: 2px solid #00ffcc;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 0 20px #00ffcc55;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* คะแนน */
+  #score {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #ffeb3b;
+  }
+  
+  /* กล่อง Game Over */
+  #gameOver {
+    margin-top: 15px;
+    color: #ff5555;
+    font-weight: bold;
+    font-size: 18px;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* ปุ่มลิงก์ */
+  .back-btn {
+    display: inline-block;
+    margin: 10px 10px 0;
+    padding: 10px 20px;
+    background: transparent;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  .back-btn:hover {
+    background: #00ffcc22;
+    box-shadow: 0 0 12px #00ffccaa;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive for mobile */
+  @media (max-width: 600px) {
+    .game-title {
+      font-size: 22px;
+    }
+  
+    canvas {
+      width: 95%;
+    }
+  
+    .back-btn {
+      width: 90%;
+      margin: 10px auto 0;
+    }
+  }
+  
